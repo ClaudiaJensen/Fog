@@ -1,21 +1,58 @@
 package FunctionLayer;
 
-import DBAccess.UserMapper;
+import DBAccess.DataFacade;
+import DBAccess.EmployeeMapper;
+import java.util.List;
 
 /**
  * The purpose of LogicFacade is to...
+ *
  * @author kasper
  */
-public class LogicFacade {
+public class LogicFacade
+{
 
-    public static User login( String email, String password ) throws LoginSampleException {
-        return UserMapper.login( email, password );
-    } 
+    public static Employee login(String email, String password) throws LoginSampleException
+    {
+        return EmployeeMapper.login(email, password);
+    }
 
-    public static User createUser( String email, String password ) throws LoginSampleException {
-        User user = new User(email, password, "customer");
-        UserMapper.createUser( user );
+    public static Employee createUser( String email, String password ) throws LoginSampleException {
+        Employee user = new Employee(email, password, "customer");
+        EmployeeMapper.createUser( user );
         return user;
     }
 
+    public static List<Order> getOrders() throws LoginSampleException
+    {
+        return DataFacade.getAllOrders();
+    }
+
+    public static Order getOrder(int orderId) throws LoginSampleException
+    {
+        if (orderId < 0)
+        {
+            throw new LoginSampleException("orderid can't be negative");
+        }
+        return DataFacade.getOrder(orderId);
+    }
+
+    public static void makeOrder(Order order) throws LoginSampleException, ClassNotFoundException
+    {
+        DataFacade.makeOrder(order);
+    }
+
+    public static void removeOrder(int orderId) throws LoginSampleException, ClassNotFoundException
+    {
+        DataFacade.removeOrder(orderId);
+    }
+    
+    public static Employee getUser(String firstName, String password) throws LoginSampleException, ClassNotFoundException
+      {
+        return DBAccess.EmployeeMapper.getUser(firstName, password);
+      }
+    
+    public static Product getProduct(int id) throws LoginSampleException, ClassNotFoundException {
+        return DataFacade.getProduct(id);
+    }
 }

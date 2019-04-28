@@ -17,11 +17,17 @@ public class LogicFacade
         return EmployeeMapper.login(email, password);
     }
 
-    public static Employee createUser( String email, String password ) throws LoginSampleException {
-        Employee user = new Employee(email, password, "customer");
-        EmployeeMapper.createUser( user );
-        return user;
+//    public static Employee createUser( String email, String password ) throws LoginSampleException {
+//        Employee user = new Employee(email, password);
+//        EmployeeMapper.createUser();
+//        return user;
+//    }
+    
+    public static Employee createUser(Employee employee) throws LoginSampleException, ClassNotFoundException
+    {
+        return DBAccess.EmployeeMapper.createUser(employee);
     }
+    
 
     public static List<Order> getOrders() throws LoginSampleException
     {

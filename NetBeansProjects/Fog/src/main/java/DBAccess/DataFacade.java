@@ -39,7 +39,7 @@ public class DataFacade
         new OrderMapper().removeOrder(orderId);
     }
     
-    public static void CreateEmployee(Employee employee) throws LoginSampleException {
+    public static void CreateEmployee(Employee employee) throws LoginSampleException, ClassNotFoundException {
         new EmployeeMapper().createUser(employee);
     }
 

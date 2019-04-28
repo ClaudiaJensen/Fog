@@ -3,19 +3,36 @@
     Created on : Apr 22, 2019, 12:50:37 AM
     Author     : claudia
 --%>
-
-<%@page import="DBAccess.OrderMapper"%>
-<%@page import="FunctionLayer.Customer"%>
 <%@page import="java.util.List"%>
-<%@page import="FunctionLayer.Order"%>
 <%@page import="FunctionLayer.LogicFacade"%>
+<%@page import="FunctionLayer.Customer"%>
+<%@page import="FunctionLayer.Order"%>
 <%
-    int num = Integer.parseInt(request.getParameter("order"));
+    //int num = Integer.parseInt(request.getParameter("order"));
     List<Order> orderList = LogicFacade.getOrders();
 %>
 
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="CSS/menu.css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>order Page</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Orders</h1>
+            <h5 class="contact"> Tlf: nummer 
+                <br>  Mail: Carport@ITsupport.dk</h5> 
+        </div>
 
+        <div class="topnav">
+            <a href="login.jsp">Log ind</a>
+            <a href="register.jsp">Opret bruger</a>
+            <a href="index.html">Vis ordre</a>
+        </div>
 
 <table class="table table-xstriped" style="margin: 0px">
     <thead>
@@ -24,7 +41,6 @@
             <th>Email</th>
             <th>Date</th>
             <th>Name</th>
-            <th>Phonenumber</th>
         </tr>
     </thead>
 
@@ -46,7 +62,6 @@
             <td><%= cust.getEmail()%></td>
             <td><%= order%></td>
             <td><%= cust.getLastName() + ", " + cust.getFirstname()%></td>
-            <td><%= cust.getPhonenumber()%></td>
         </tr>
     </tbody>
     <% }%>

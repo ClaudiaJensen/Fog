@@ -14,14 +14,12 @@ public class Customer
     private String firstname;
     private String lastName;
     private String email;
-    private int phonenumber;
 
-    public Customer(String firstname, String lastName, String email, int phonenumber)
+    public Customer(String firstname, String lastName, String email)
     {
         this.firstname = firstname;
         this.lastName = lastName;
         this.email = email;
-        this.phonenumber = phonenumber;
     }
 
     public String getFirstname()
@@ -52,15 +50,5 @@ public class Customer
     public void setEmail(String email)
     {
         this.email = email;
-    }
-
-    public int getPhonenumber()
-    {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(int phonenumber)
-    {
-        this.phonenumber = phonenumber;
     }
 }

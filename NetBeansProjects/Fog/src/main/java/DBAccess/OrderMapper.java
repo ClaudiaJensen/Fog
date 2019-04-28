@@ -52,20 +52,19 @@ public class OrderMapper
             List<Order> orderList = new ArrayList<>();
             while (res.next())
             {
-                int idorder = res.getInt("idorder");
+                int idorder = res.getInt("id_order");
                 Calendar date = Calendar.getInstance();
                 Timestamp ts = res.getTimestamp("date");
                 date.setTime((Date) ts);
                 String firstname = res.getString("firstname");
                 String lastname = res.getString("lastname");
                 String email = res.getString("email");
-                int phonenumber = res.getInt("phonenumber");
                 int length = res.getInt("length");
                 int width = res.getInt("width");
                 int height = res.getInt("height");
                 double price = res.getDouble("price");
 
-                Customer customer = new Customer(firstname, lastname, email, phonenumber);
+                Customer customer = new Customer(firstname, lastname, email);
                 Customize customize = new Customize(length, height, width);
                 Order order = new Order(idorder, date, customer, customize, price);
                 orderList.add(order);
@@ -79,7 +78,7 @@ public class OrderMapper
     }
     
     public void removeOrder(int orderId) throws LoginSampleException, ClassNotFoundException {
-        String sql = "DELETE FROM .order WHERE idorder = ?";
+        String sql = "DELETE FROM .order WHERE id_order = ?";
         try {
             Connection con = Connector.connection();
             PreparedStatement ps = con.prepareStatement(sql);
@@ -91,8 +90,8 @@ public class OrderMapper
     }
     
     public void makeOrder(Order order) throws LoginSampleException, ClassNotFoundException {
-        String sql = "INSERT INTO order(firstname, lastname, email, phonenumber, length, width, height, shed, price)"
-                + "values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO order(firstname, lastname, email, length, width, height, shed, price)"
+                + "values(?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection con = Connector.connection();
@@ -100,12 +99,10 @@ public class OrderMapper
             ps.setString(1, order.getCustomer().getFirstname());
             ps.setString(2, order.getCustomer().getLastName());
             ps.setString(3, order.getCustomer().getEmail());
-            ps.setInt(4, order.getCustomer().getPhonenumber());
-            ps.setInt(5, order.getCustomize().getLegth());
-            ps.setInt(6, order.getCustomize().getWidth());
-            ps.setInt(7, order.getCustomize().getHeight());
-
-            ps.setDouble(14, order.getPrice());
+            ps.setInt(4, order.getCustomize().getLegth());
+            ps.setInt(5, order.getCustomize().getWidth());
+            ps.setInt(6, order.getCustomize().getHeight());
+            ps.setDouble(7, order.getPrice());
             ps.executeUpdate();
             ResultSet res = ps.getGeneratedKeys();
             res.next();

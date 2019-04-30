@@ -24,7 +24,7 @@ public class Calculator
     public Calculator(Order order) throws LoginSampleException
     {
         this.WIDTH = customize.getWidth();
-        this.LENGTH = customize.getLegth();
+        this.LENGTH = customize.getLength();
         this.order = order;
         this.customize = order.getCustomize();
         this.products = new ArrayList<>();

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>Start Page</title>
@@ -8,26 +13,25 @@
     <body>
          <div class="header">
             <h1>Carporte</h1>
-           <h5 class="contact"> Tlf: nummer
+           <h5 class="contact"> Tlf: nummer 
                 <br>  Mail: Carport@ITsupport.dk</h5> 
         </div>
 
         <div class="topnav">
              <a href="login.jsp">Log ind</a>
             <a href="register.jsp">Opret bruger</a>
-            <a href="index.html">Vis ordre</a>
+            <a href="index.jsp">Køb carport</a>
         </div>
     <center>
 
         <br>
         <form action="FrontController" method="Post"> 
-            <input type="hidden" name="command" value="order">
+            <input type="hidden" name="command" value="index">
             <div class="knap">
-                <input type ="submit" value="Vis ordre">
+                <input type ="submit" value="Køb">
             </div>
             
         </form>
     </center>
 </body>
 </html>
-

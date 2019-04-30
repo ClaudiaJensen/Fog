@@ -61,4 +61,15 @@ public class LogicFacade
     public static Product getProduct(int id) throws LoginSampleException, ClassNotFoundException {
         return DataFacade.getProduct(id);
     }
+    
+    public static Calculator getCalculator(Order order) throws LoginSampleException {
+        return new Calculator(order);
+    }
+    
+    public static Customize makeCarport(int length, int width, int height, String drawing) throws LoginSampleException
+      {
+        Customize carport = new Customize(length, width, height);
+        carport.setSVGdrawing(drawing);
+        return carport;
+      }
 }

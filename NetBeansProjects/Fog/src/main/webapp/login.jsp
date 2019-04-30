@@ -22,7 +22,7 @@
         <div class="topnav">
             <a href="login.jsp">Log Ind</a>
             <a href="register.jsp">Opret Bruger</a>
-            <a href="index.html">Vis ordre</a>
+            <a href="index.jsp">Køb carport</a>
         </div>
     <center>
         <br>

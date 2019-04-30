@@ -99,7 +99,7 @@ public class OrderMapper
             ps.setString(1, order.getCustomer().getFirstname());
             ps.setString(2, order.getCustomer().getLastName());
             ps.setString(3, order.getCustomer().getEmail());
-            ps.setInt(4, order.getCustomize().getLegth());
+            ps.setInt(4, order.getCustomize().getLength());
             ps.setInt(5, order.getCustomize().getWidth());
             ps.setInt(6, order.getCustomize().getHeight());
             ps.setDouble(7, order.getPrice());

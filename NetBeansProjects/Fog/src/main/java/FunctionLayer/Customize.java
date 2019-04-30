@@ -11,25 +11,29 @@ package FunctionLayer;
  */
 public class Customize
 {
-    private int legth;
+    private int length;
     private int height;
     private int width;
+    private String SVGdrawing;
+    
+    public static final int padding = 30;
+    public static final int beam = 5;
 
-    public Customize(int legth, int height, int width)
+    public Customize(int length, int height, int width)
     {
-        this.legth = legth;
+        this.length = length;
         this.height = height;
         this.width = width;
     }
 
-    public int getLegth()
+    public int getLength()
     {
-        return legth;
+        return length;
     }
 
-    public void setLegth(int legth)
+    public void setLength(int length)
     {
-        this.legth = legth;
+        this.length = length;
     }
 
     public int getHeight()
@@ -51,6 +55,18 @@ public class Customize
     {
         this.width = width;
     }
+
+    public String getSVGdrawing()
+    {
+        return SVGdrawing;
+    }
+
+    public void setSVGdrawing(String SVGdrawing)
+    {
+        this.SVGdrawing = SVGdrawing;
+    }
+    
+    
     
     
 }

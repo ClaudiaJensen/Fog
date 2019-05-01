@@ -34,7 +34,7 @@ public class CreateNewEmployee extends Command
         }
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
-        return "customsize";
+        return "user";
       }
 
     }

@@ -107,13 +107,11 @@
                                 <br>
                             </label>
                         </div>
-                        <br>
                         <form action="FrontController" method="Post"> 
                             <input type="hidden" name="command" value="carport">
                             <div class="knap">
                                 <input type ="submit" value="confirm">
                             </div>
-
                         </form>
                 </div>
                 </body>
